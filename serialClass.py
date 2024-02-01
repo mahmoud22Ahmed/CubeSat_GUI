@@ -26,6 +26,15 @@ class serialClass():
     solar3=0
     solar4=0
 
+    #EPS Motors status
+    MotorX=0
+    MotorY=0
+    MotorZ=0
+    
+    #Temprature  Sensors in EPS
+    EPSTemp=0
+    BatHeater =0
+
     #Time
     Time=0
 
@@ -47,6 +56,27 @@ class serialClass():
     def Manager_ofRecievedData(self):
         # Assuming self.serial_data is a string containing comma-separated values
         self.received_data = self.serial_data.split(',')
+        
+        #Recieved Data squence 
+          #0)Time
+          #1)Voltage
+          #2)Current
+          #3)Current3.3
+          #4)Current5
+          #5)Payload
+          #6)OBCS
+          #7)ADCS
+          #8)Temp
+          #9)Solar1
+          #10)Solar2
+          #11)Solar3
+          #12)Solar4
+          #13)COMM
+          #14)EPSTemp
+          #15)BatHeater
+          #16)MotorX
+          #17)MotorY
+          #18)MotorZ
 
         # Assigning values to variables
         Time = int(self.received_data[0])
@@ -63,6 +93,11 @@ class serialClass():
         solar3 = int(self.received_data[11])
         solar4 = int(self.received_data[12])
         comm_antennas = int(self.received_data[13])
+        EPSTemp = float(self.received_data[14])
+        BatHeater = int(self.received_data[15])
+        MotorX = int(self.received_data[16])
+        MotorY = int(self.received_data[17])
+        MotorZ = int(self.received_data[18])
 
         # Assigning values to instance variables
         self.Time = Time
@@ -79,6 +114,11 @@ class serialClass():
         self.solar3 = solar3
         self.solar4 = solar4
         self.comm_antennas = comm_antennas
+        self.BatHeater =BatHeater
+        self.EPSTemp = EPSTemp
+        self.MotorX = MotorX
+        self.MotorY = MotorY
+        self.MotorZ= MotorZ
 
 
 
