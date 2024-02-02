@@ -10,7 +10,7 @@ class Styling(QMainWindow, Ui_MainWindow):
         # Set up a QLabel to display the background image
         self.background_label = QLabel(self)
         self.update_background_size()  # Set initial size
-        pixmap = QPixmap("../background.jpg")  # Replace with the path to your image
+        pixmap = QPixmap("background.jpg")  # Replace with the path to your image
         self.background_label.setPixmap(pixmap)
 
         # Make the label a child of the central widget
